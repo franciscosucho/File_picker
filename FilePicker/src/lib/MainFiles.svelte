@@ -1,31 +1,25 @@
 <script>
-    import FIleItem from "./FIleItem.svelte";
-
+    import ContArchivos from "./ContArchivos.svelte";
+    import Filters from "./Filters.svelte";
     let search = "";
-    let items = [
-        {
-            id: 1,
-            name: "Recientes",
-            url: "https://picsum.photos/200",
-            active: true,
-        },
-       
-    ];
-
-    function setActive(item) {
-        items = items.map((cat) => ({
-            ...cat,
-
-            active: cat.id === item.id,
-        }));
-    }
 </script>
 
 <div class="main_files">
-    {#each items as item}
-        <FIleItem {...item} onClick={() => setActive(item)} />
-    {/each}
+    <Filters />
+    <ContArchivos />
 </div>
 
 <style>
+    .main_files {
+        background-color: rgba(0, 255, 255, 0.068);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0px;
+        gap: 20px;
+        width: 100%;
+        height: 100%;
+      
+    }
 </style>

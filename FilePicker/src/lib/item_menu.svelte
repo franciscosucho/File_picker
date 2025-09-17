@@ -30,12 +30,15 @@
     }
     .item_list.active {
         background-color: #0867ff; 
-        color: white;
+        color: white !important;
+        .name_folder{
+            color: white !important;
+        }
     }
     .item_list .name_folder {
         font-weight: 500;
         font-size: 16px;
-        color: white;
+        color: black;
     }
     .item_list .file_count {
         font-weight: 400;
@@ -51,5 +54,8 @@
     .item_list:hover {
         background-color: #0867ff;
         color: white;
+          .name_folder{
+            color: white !important;
+        }
     }
 </style>

@@ -1,10 +1,12 @@
 <script>
   export let value = "";
-  export let placeholder = "Buscar archivos...";
+  export let placeholder = "";
+  export let height ="";
+  export let width = "";
 </script>
 
-<div class="container_input">
-  <i class="fa-solid fa-magnifying-glass"></i>
+<div class="container_input" style="width: {width}; height: {height};">
+  <i class="fa-solid fa-magnifying-glass input_icon"></i>
   <input type="text" class="form-control" bind:value {placeholder} />
 </div>
 
@@ -27,6 +29,10 @@
       background-color: transparent;
       color: rgb(8, 8, 8);
       font-size: 16px;
+    }
+    .input_icon{
+      font-size: 1.2em;
+      color: gray;
     }
   }
 </style>

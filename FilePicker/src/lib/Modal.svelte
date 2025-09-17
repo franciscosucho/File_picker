@@ -12,7 +12,7 @@
             <MenuLateral />
 
             <MainFiles/>
-            <button on:click={onClose}>Cerrar</button>
+           <!--  <button on:click={onClose}>Cerrar</button>-->
         </div>
     </div>
 <!-- {/if} -->

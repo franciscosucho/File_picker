@@ -3,6 +3,9 @@
     import ItemMenu from "./item_menu.svelte";
 
     let search = "";
+    let height = "20px";
+    let width = "80%";
+    let placeholder = "Buscar carpetas...";
     let categories = [
         {
             name: "Recientes",
@@ -31,7 +34,7 @@
 
 <div class="menu_lateral">
 
-    <InputBuscar bind:value={search} />
+    <InputBuscar bind:value={search} {height} {width} {placeholder}/>
 
     <ul class="cont_items">
         {#each categories as cat}

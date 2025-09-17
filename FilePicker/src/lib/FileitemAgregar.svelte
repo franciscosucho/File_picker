@@ -1,48 +1,43 @@
 <script>
     export let id;
     export let name;
-    export let url;
+
     export let active = false;
     export let onClick;
 </script>
 
-<div class="ItemFile" class:active on:click={onClick} {id}>
-    <img src={url} alt="" />
-    <i class="fa-solid fa-image icon_img"></i>
+<div class="ItemFileAgregar" class:active on:click={onClick} {id}>
+    <i class="fa-solid fa-plus icon_img"></i>
     <h3 class="name_file">{name}</h3>
 </div>
 
 <style>
-    .ItemFile {
+    .ItemFileAgregar {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 10px;
         width: 80%;
-        height:auto;
+        height: auto;
         border-radius: 8px;
         padding: 10px;
-        background-color: #B4D1FF;
+        background-color: #b4d1ff;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
     }
-    .ItemFile:hover {
+    .ItemFileAgregar:hover {
         background-color: #9bbdff;
     }
-    .ItemFile img {
-        width: 0px;
-        height: 0px;
-    }
-    .ItemFile .icon_img {
+    .ItemFileAgregar .icon_img {
         font-size: 2em;
 
         color: white;
         padding: 20px;
         border-radius: 50%;
-        background-color: #E0ECFF;
+        background-color: #e0ecff;
     }
-    .ItemFile .name_file {
+    .ItemFileAgregar .name_file {
         font-weight: 700;
         font-size: 1.3em;
         color: rgb(255, 255, 255);
