@@ -1,10 +1,10 @@
 <script>
-    import InputBuscar from "./inputBuscar.svelte";
+    import InputBuscar from "../inputBuscar.svelte";
     import ItemMenu from "./item_menu.svelte";
 
     let search = "";
     let height = "20px";
-    let width = "80%";
+    let width = "90%";
     let placeholder = "Buscar carpetas...";
     let categories = [
         {
@@ -47,11 +47,13 @@
 
 <style>
     .menu_lateral{
-        background-color: #F0F2F5 !important;
+        background-color: #ffffff;
+        border-right: 1px solid rgba(0, 0, 0, 0.151);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        padding-top: 10px;
         gap: 40px;
         height: 100%;
         width: 25%;

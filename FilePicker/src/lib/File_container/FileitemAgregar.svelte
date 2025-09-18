@@ -12,35 +12,48 @@
 </div>
 
 <style>
+    :root {
+        --color-texto: #000000;
+        --color-main: #4989f0;
+        --color-secundario: #e8f2ff;
+    }
+
     .ItemFileAgregar {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 10px;
+        justify-content: space-around;
         width: 80%;
         height: auto;
         border-radius: 8px;
-        padding: 10px;
-        background-color: #b4d1ff;
+
+        background-color: #ffffff;
         cursor: pointer;
+        border: 1px solid rgba(0, 0, 0, 0.151);
         transition: all 0.2s ease-in-out;
     }
     .ItemFileAgregar:hover {
-        background-color: #9bbdff;
+        background-color: var(--color-secundario);
     }
     .ItemFileAgregar .icon_img {
+        margin-top: 20px;
         font-size: 2em;
-
         color: white;
-        padding: 20px;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 15px;
         border-radius: 50%;
-        background-color: #e0ecff;
+        background-color: var(--color-main);
     }
     .ItemFileAgregar .name_file {
-        font-weight: 700;
-        font-size: 1.3em;
-        color: rgb(255, 255, 255);
+        margin-top: 5px;
+        font-weight: 500;
+        font-size: 1.2em;
+        color: var(--color-texto);
         text-align: center;
     }
 </style>

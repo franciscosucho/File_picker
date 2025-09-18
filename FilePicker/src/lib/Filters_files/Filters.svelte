@@ -1,10 +1,10 @@
 <!-- i class="fa-solid fa-list-ul"></i> -->
 <!-- <i class="fa-solid fa-border-all"></i> -->
 <script>
-    import InputBuscar from "./inputBuscar.svelte";
+    import InputBuscar from "../inputBuscar.svelte";
     import FiltList from "./FiltList.svelte";
     let height = "20px";
-    let width = "30%";
+    let width = "60%";
     let placeholder = "Buscar archivos...";
 </script>
 
@@ -15,14 +15,14 @@
 
 <style>
     .contain_filters {
+        padding-top: 5px;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-around;
         gap: 20px;
         width: 100%;
         height: 10%;
-        padding: 0px 0px;
-
-        background-color: rgba(0, 0, 0, 0.151);
+       
+        margin: 0px;
     }
 </style>

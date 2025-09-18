@@ -15,12 +15,18 @@
 </button>
 
 <style>
+    :root {
+        --color-texto: #000000;
+        --color-main: #4989f0;
+        --color-secundario: #e8f2ff;
+    }
+
     .item_list {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 90%;
-        background-color: #5f9bfd05;
+        background-color: rgba(232, 242, 255, 0);
         padding: 10px;
         border-radius: 8px;
         border: none;
@@ -29,10 +35,11 @@
         transition: all 0.2s ease-in-out;
     }
     .item_list.active {
-        background-color: #0867ff; 
-        color: white !important;
-        .name_folder{
-            color: white !important;
+        border: 1px solid #0d6dfc;
+        background-color: #e8f2ff;
+        color: rgb(24, 24, 24) !important;
+        .name_folder {
+            color: rgb(24, 24, 24) !important;
         }
     }
     .item_list .name_folder {
@@ -50,12 +57,14 @@
     }
     .item_list .icon_item {
         font-size: 1.5em;
+        color: black;
+        transition: all 0.2s ease-in-out;
     }
     .item_list:hover {
-        background-color: #0867ff;
-        color: white;
-          .name_folder{
-            color: white !important;
+        margin-left: 10px !important;
+        color: #0d6dfc !important;
+        .icon_item {
+            color: #0d6dfc !important;
         }
     }
 </style>

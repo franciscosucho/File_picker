@@ -1,8 +1,8 @@
 <script>
     export let open = false; // controla si se muestra
     export let onClose = () => {}; // callback para cerrar
-    import MainFiles from "./MainFiles.svelte";
-    import MenuLateral from "./menu_lateral.svelte";
+    import MainFiles from "./File_container/MainFiles.svelte";
+    import MenuLateral from "./MenuLateral/menu_lateral.svelte";
 </script>
 
 <!-- {#if open} -->

@@ -1,7 +1,7 @@
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <script>
-import { changueList } from '../store/store.js';
+import { changueList } from '../../store/store.js';
     function handleChangelist() {
        changueList.update(x => !$changueList);
     }
