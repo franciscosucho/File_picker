@@ -1,7 +1,6 @@
 <script>
     // Estado local para controlar si el menú está visible
    export let showMenu = false;
-    // Función para alternar la visibilidad del menú
 
 
 </script>

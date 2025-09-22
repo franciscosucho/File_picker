@@ -20,7 +20,6 @@
     {placeholder}
     aria-label="Recipient's username"
     aria-describedby="basic-addon2"
-    style="width: {width}; height: {height};"
   />
 
 </div>
@@ -36,11 +35,17 @@
     height: auto;
     margin: 0px;
     padding: 0px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
   .input_main {
     border: none;
+    height: 100%;
+    width: 100%;
     border-radius: 8px;
-    padding: 20px;
+    padding: 15px;
     background-color: transparent;
     border: 1px solid rgba(0, 0, 0, 0.151);
     box-shadow: none;

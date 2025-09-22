@@ -12,7 +12,7 @@
         {name}
     </span>
     <span class="file_count">{count}</span>
-</button>
+</button> 
 
 <style>
     :root {

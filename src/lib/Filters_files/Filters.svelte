@@ -3,7 +3,7 @@
 <script>
     import InputBuscar from "../inputBuscar.svelte";
     import FiltList from "./FiltList.svelte";
-    let height = "20px";
+    let height = "40px";
     let width = "60%";
     let placeholder = "Buscar archivos...";
 </script>
@@ -15,14 +15,12 @@
 
 <style>
     .contain_filters {
-        padding-top: 5px;
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-around;
         gap: 20px;
         width: 100%;
         height: 10%;
-       
         margin: 0px;
     }
 </style>

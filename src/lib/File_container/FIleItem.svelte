@@ -8,7 +8,7 @@
     //  variable para cambiar la vista de lista a grid o a lista.
     import { changueList } from "./../../store/store.js";
 
-    // Estado local para controlar si el menú está visible
+    // Estado local para controlar si el menu esta visible
     let showMenu = false;
 
     // Función para alternar la visibilidad del menú
@@ -16,7 +16,6 @@
         event.stopPropagation(); // Evita que el clic se propague al div principal
         showMenu = !showMenu;
     }
-
 </script>
 
 {#if $changueList === true}
@@ -141,6 +140,21 @@
     .context-menu-container {
         position: relative;
         display: inline-block;
+    }
+    .context-menu-container .icon_opts {
+        font-size: 1.2em;
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        transition: all .2s ease-in-out;
+    }
+    .context-menu-container .icon_opts:hover {
+        background-color: #1b1b1b2d;
+        
     }
 
     .context-menu {
