@@ -20,8 +20,8 @@ main{
   align-items: center;
   gap: 20px;
   background-color: rgba(0, 0, 0, 0);
-  height: 80vh;
-  width: 80vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 </style>

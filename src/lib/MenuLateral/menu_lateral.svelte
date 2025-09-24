@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
     import InputBuscar from "../inputBuscar.svelte";
     import ItemMenu from "./item_menu.svelte";
     import { changueMenu } from "./../../store/menu_store.js";
@@ -33,6 +35,13 @@
             active: false,
         },
     ];
+    let add = {      
+        name:"",
+        icon:"fa-solid fa-plus",
+        add : true,
+        active: false,
+    }
+    
 
     function setActive(item) {
         categories = categories.map((cat) => ({
@@ -43,6 +52,9 @@
 
     function handleChangemenu() {
         changueMenu.update((x) => !$changueMenu);
+    }
+    function handleShowAdd(){
+        alert("ss")
     }
 </script>
 
@@ -59,11 +71,11 @@
                 <ItemMenu {...cat} onClick={() => setActive(cat)} />
             {/each}
         </ul>
+        <ItemMenu {add} onClick={() => handleShowAdd()}/>
     </aside>
 {:else}
     <aside class="menu_lateral no_desplegado">
- <i class="fa-solid fa-bars icon_menu" on:click={handleChangemenu}
-            ></i>
+        <i class="fa-solid fa-bars icon_menu" on:click={handleChangemenu}></i>
     </aside>
 {/if}
 

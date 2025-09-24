@@ -45,7 +45,7 @@
             </ul>
         </div>
         <img src={url} alt="" />
-    </div>
+    </div> 
 {:else}
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -87,16 +87,15 @@
         width: 100%;
         height: auto;
         border-radius: 8px;
-        padding: 0px;
-        background-color: #ffffff;
+        padding: 10px;
         border: 1px solid rgba(0, 0, 0, 0.151);
-        cursor: pointer;
         transition: all 0.2s ease-in-out;
     }
     .gridFile .contain_icon {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 10px;
         width: 90%;
         height: auto;
         color: black;
@@ -113,6 +112,7 @@
         border-radius: 8px;
     }
     .listFile {
+        overflow-y: hidden;
         overflow-x: hidden;
         display: flex;
         align-items: center;

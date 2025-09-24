@@ -1,6 +1,7 @@
 <script>
     import FIleItem from "./FIleItem.svelte";
     import FileitemAgregar from "./FileitemAgregar.svelte";
+    import Form from "../Form/Form.svelte";
     let search = "";
     //  variable para cambiar la vista de lista a grid o a lista.
     import { changueList } from "../../store/store.js";
@@ -89,6 +90,7 @@
             name="Agregar"
             onClick={() => {}}
         /> -->
+        <Form ></Form>
     </div>
 {:else}
     <div class="container_file grid">
@@ -106,12 +108,12 @@
 <style>
     .grid {
         display: grid;
-         grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
         grid-template-rows: repeat(1fr);
-     
+
         padding: 30px;
         grid-gap: 20px;
-        grid-auto-rows: minmax(50%, auto);
+        grid-auto-rows: minmax(75%, auto);
         width: 100%;
         height: 80%;
         overflow-y: scroll;

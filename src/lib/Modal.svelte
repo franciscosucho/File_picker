@@ -32,8 +32,8 @@
 
     .modal {
         background: white;
-        width: 60%;
-        height: 60%;
+        width: 70%;
+        height: 70%;
         border-radius: 8px;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         display: flex;
