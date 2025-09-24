@@ -1,9 +1,10 @@
 <script>
-// @ts-nocheck
-
+    // @ts-nocheck
+    import { onMount } from "svelte";
     import InputBuscar from "../inputBuscar.svelte";
     import ItemMenu from "./item_menu.svelte";
     import { changueMenu } from "./../../store/menu_store.js";
+    import { changueBackdrop } from "./../../store/store_form.js";
     let search = "";
     let height = "20px";
     let width = "70%";
@@ -35,13 +36,13 @@
             active: false,
         },
     ];
-    let add = {      
-        name:"",
-        icon:"fa-solid fa-plus",
-        add : true,
+    let add = {
+        name: "",
+        icon: "",
+        //icon:"fa-solid fa-plus",
+        add: true,
         active: false,
-    }
-    
+    };
 
     function setActive(item) {
         categories = categories.map((cat) => ({
@@ -53,15 +54,22 @@
     function handleChangemenu() {
         changueMenu.update((x) => !$changueMenu);
     }
-    function handleShowAdd(){
-        alert("ss")
+    function handleShowAdd() {
+        changueBackdrop.update((x) => !$changueBackdrop);
     }
+    onMount(async () => {
+        const res = await fetch("http://127.0.0.1:8000/filepicker");
+        alumnos = await res.json();
+        alert("Datos cargados")
+    });
 </script>
 
 {#if $changueMenu === true}
     <aside class="menu_lateral desplegado">
         <div class="cont_icon_menu">
             <InputBuscar bind:value={search} {height} {width} {placeholder} />
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
             <i class="fa-solid fa-bars icon_menu" on:click={handleChangemenu}
             ></i>
         </div>
@@ -71,10 +79,13 @@
                 <ItemMenu {...cat} onClick={() => setActive(cat)} />
             {/each}
         </ul>
-        <ItemMenu {add} onClick={() => handleShowAdd()}/>
+        <ItemMenu {...add} onClick={() => handleShowAdd()} />
     </aside>
 {:else}
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
     <aside class="menu_lateral no_desplegado">
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
+        <!-- svelte-ignore a11y_no_static_element_interactions -->
         <i class="fa-solid fa-bars icon_menu" on:click={handleChangemenu}></i>
     </aside>
 {/if}

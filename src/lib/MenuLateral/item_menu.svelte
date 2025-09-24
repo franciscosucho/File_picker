@@ -61,16 +61,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 5px;
         .name_folder {
+            text-align: center;
             color: rgb(71, 71, 71) !important;
             font-size: 1.2;
             font-weight: bolder;
-            
         }
         .icon_item {
-           
-            font-size: 1.5em;
-            color: black;
+            color: rgb(71, 71, 71) !important;
+            font-size: 1.2em;
+        
         }
     }
 
