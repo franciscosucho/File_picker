@@ -4,7 +4,6 @@
     export let label_content = "";
     export let maxLeng = 0;
     export let name_inp = "";
-    import { Label, Input, label } from "flowbite-svelte";
 </script>
 
 <div class="cont_input">

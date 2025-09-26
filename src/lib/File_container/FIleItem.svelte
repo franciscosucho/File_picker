@@ -45,7 +45,7 @@
             </ul>
         </div>
         <img src={url} alt="" />
-    </div> 
+    </div>
 {:else}
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_static_element_interactions -->
@@ -60,7 +60,7 @@
                 ></i>
                 <ul class="context-menu" class:show={showMenu}>
                     <li><i class="fa-solid fa-download"></i> Descargar</li>
-                    <li><i class="fa-solid fa-share-nodes"></i> Compartir</li>
+                    <li><i class="fa-solid fa-share-nodes"></i> Editar</li>
                     <hr />
                     <li><i class="fa-solid fa-trash-can"></i> Eliminar</li>
                 </ul>
@@ -82,21 +82,32 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 10px;
+        justify-content: flex-start;
+        gap: 40px;
         width: 100%;
         height: auto;
         border-radius: 8px;
-        padding: 10px;
         border: 1px solid rgba(0, 0, 0, 0.151);
         transition: all 0.2s ease-in-out;
+        .name_file {
+            font-size: 1em;
+            font-weight: 600;
+            color: black;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 60%;
+        }
     }
     .gridFile .contain_icon {
+        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 10px;
-        width: 90%;
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.151);
         height: auto;
         color: black;
         font-size: 1em;
@@ -108,7 +119,7 @@
     .gridFile img {
         margin-bottom: 20px;
         width: 90%;
-        height: 120px;
+        height: 60%;
         border-radius: 8px;
     }
     .listFile {
@@ -150,11 +161,10 @@
         justify-content: center;
         align-items: center;
         padding: 15px;
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
     }
     .context-menu-container .icon_opts:hover {
         background-color: #1b1b1b2d;
-        
     }
 
     .context-menu {

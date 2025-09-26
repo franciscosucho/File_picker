@@ -1,13 +1,45 @@
 <script>
-    export let open = false; // controla si se muestra
     export let onClose = () => {}; // callback para cerrar
     import MainFiles from "./File_container/MainFiles.svelte";
     import MenuLateral from "./MenuLateral/menu_lateral.svelte";
-    import { changueBackdrop } from "../store/store_form.js";
     import InputForm from "./Form/inputForm.svelte";
+
+    import FormComp from "./Form/formComp.svelte";
+    let formProps = {
+        tit_form: "Crear nueva carpeta",
+        methodProp: "post",
+        actionProp: "/createFolder",
+    };
+
+    import { changueBackdrop } from "../store/store_form.js";
     function handleShowAdd(event) {
-        event.stopPropagation();
-        changueBackdrop.update((event) => !$changueBackdrop);
+        changueBackdrop.update(() => !$changueBackdrop);
+    }
+
+    import Contbtns from "./Form/Contbtns.svelte";
+    let cont_btnProps = {
+        placeholder_pri: "Crear",
+        placeholder_sec: "Cancelar",
+        handFunction: handleShowAdd,
+    };
+
+    let foldername;
+    async function post_form() {
+        let dataArray = new FormData();
+        dataArray.append("foldername", foldername);
+        fetch("/post", {
+            method: "POST",
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+            body: dataArray,
+        })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 </script>
 
@@ -18,20 +50,17 @@
 
 <div class="contain_modal" on:click={onClose}>
     <div class="backdrop" class:active_back={$changueBackdrop}>
-        <form action="" class="form">
-            <h3 class="tit_form">Crear nueva carpeta</h3>
+        <!-- <FormComp {...formProps}></FormComp>-->
+        <form method="post" class="form" on:submit|preventDefault={post_form}>
+            <h3 class="tit_form">Crear Carpeta</h3>
             <InputForm
                 type={"text"}
-                name_inp={"username"}
-                placeholder={"Username"}
+                label_content={"Nombre de la carpeta"}
+                placeholder={"Escriba el nombre de la carpeta"}
+                name_inp={"namefolder"}
                 maxLeng={50}
             />
-            <div class="cont_btn">
-                <button class="btn_form" type="submit">Crear</button>
-                <button class="btn_form cancelar" on:click={handleShowAdd}
-                    >Cancelar</button
-                >
-            </div>
+            <Contbtns {...cont_btnProps}></Contbtns>
         </form>
     </div>
     <div class="modal" on:click|stopPropagation>
@@ -59,18 +88,19 @@
     .backdrop {
         display: none;
         position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+
         z-index: 1000;
         background-color: rgba(0, 0, 0, 0.904);
     }
     .active_back {
-        display: block !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
     }
     .modal {
         background: white;
@@ -99,29 +129,5 @@
         color: black;
         font-size: 1.3em;
         font-weight: bolder;
-    }
-
-    .form .cont_btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 80%;
-        height: auto;
-        gap: 20px;
-    }
-    .form .cont_btn .btn_form {
-        padding: 10px;
-        width: 40%;
-        background-color: rgb(38, 38, 230);
-        color: white;
-        font-weight: bold;
-        border-radius: 12px;
-        cursor: pointer;
-    }
-    .cancelar {
-        font-weight: bold;
-        background-color: transparent !important;
-        border: 1px solid rgba(29, 29, 29, 0.37);
-        color: rgb(29, 29, 29) !important;
     }
 </style>

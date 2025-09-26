@@ -57,11 +57,13 @@
     function handleShowAdd() {
         changueBackdrop.update((x) => !$changueBackdrop);
     }
-    onMount(async () => {
-        const res = await fetch("http://127.0.0.1:8000/filepicker");
-        alumnos = await res.json();
-        alert("Datos cargados")
-    });
+let apiResults, URL = "http://127.0.0.1:8000/filepicker/folders";
+
+	const getApiAsync = (URL) => {
+		 fetch(URL)
+			.then((response) => response.json())
+			.then((response) => apiResults = response);
+	};
 </script>
 
 {#if $changueMenu === true}

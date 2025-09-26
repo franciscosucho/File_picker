@@ -56,22 +56,21 @@
     }
     .item_list.add {
         border: 1px solid #0d6dfc !important;
-        background-color: #21519169 !important;
-        color: rgb(24, 24, 24) !important;
+        background-color: #5192e669 !important;
+
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 5px;
         .name_folder {
             text-align: center;
-            color: rgb(71, 71, 71) !important;
+            color: rgb(59, 59, 59) !important;
             font-size: 1.2;
             font-weight: bolder;
         }
         .icon_item {
-            color: rgb(71, 71, 71) !important;
+            color: rgb(235, 235, 235) !important;
             font-size: 1.2em;
-        
         }
     }
 
