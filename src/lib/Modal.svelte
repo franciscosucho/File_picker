@@ -39,6 +39,24 @@
         console.log(await response.json());
     }
 
+    async function get_all_folders() {
+        const response = await fetch(
+            "http://localhost:8000/filepicker/folders",
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(),
+            },
+        );
+        console.log(await response.json());
+        return await response.json();
+    }
+
+    let folders = 
+    get_all_folders();
+
     let categories = [
         {
             name: "Recientes",
@@ -179,10 +197,7 @@
         </form>
     </div>
     <div class="modal" on:click|stopPropagation>
-        <MenuLateral
-            bind:categories={copyCategories}
-            on:input={handleSearchCat}
-        />
+        <MenuLateral bind:categories={folders} on:input={handleSearchCat} />
 
         <MainFiles bind:items={copyitems} on:input={handleSearchFile} />
         <!--  <button on:click={onClose}>Cerrar</button>-->
