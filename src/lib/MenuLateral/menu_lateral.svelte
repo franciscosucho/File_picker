@@ -1,41 +1,14 @@
 <script>
     // @ts-nocheck
-    import { onMount } from "svelte";
+    export let categories = [];
     import InputBuscar from "../inputBuscar.svelte";
     import ItemMenu from "./item_menu.svelte";
     import { changueMenu } from "./../../store/menu_store.js";
     import { changueBackdrop } from "./../../store/store_form.js";
-    let search = "";
     let height = "20px";
     let width = "70%";
     let placeholder = "Buscar carpetas...";
-    let categories = [
-        {
-            name: "Recientes",
-            icon: "fa-solid fa-folder",
-            count: 12,
-            active: true,
-        },
-        {
-            name: "Documentos",
-            icon: "fa-solid fa-folder",
-            count: 24,
-            active: false,
-        },
-        {
-            name: "Imágenes",
-            icon: "fa-solid fa-folder",
-            count: 156,
-            active: false,
-        },
-        { name: "Videos", icon: "fa-solid fa-folder", count: 8, active: false },
-        {
-            name: "Carpetas",
-            icon: "fa-solid fa-folder",
-            count: 6,
-            active: false,
-        },
-    ];
+
     let add = {
         name: "",
         icon: "",
@@ -57,19 +30,12 @@
     function handleShowAdd() {
         changueBackdrop.update((x) => !$changueBackdrop);
     }
-let apiResults, URL = "http://127.0.0.1:8000/filepicker/folders";
-
-	const getApiAsync = (URL) => {
-		 fetch(URL)
-			.then((response) => response.json())
-			.then((response) => apiResults = response);
-	};
 </script>
 
 {#if $changueMenu === true}
     <aside class="menu_lateral desplegado">
         <div class="cont_icon_menu">
-            <InputBuscar bind:value={search} {height} {width} {placeholder} />
+            <InputBuscar {height} {width} {placeholder} on:input/>
             <!-- svelte-ignore a11y_click_events_have_key_events -->
             <!-- svelte-ignore a11y_no_static_element_interactions -->
             <i class="fa-solid fa-bars icon_menu" on:click={handleChangemenu}
@@ -78,7 +44,11 @@ let apiResults, URL = "http://127.0.0.1:8000/filepicker/folders";
 
         <ul class="cont_items">
             {#each categories as cat}
-                <ItemMenu {...cat} onClick={() => setActive(cat)} />
+                <ItemMenu
+                    {...cat}
+                    icon="fa-solid fa-folder"
+                    onClick={() => setActive(cat)}
+                />
             {/each}
         </ul>
         <ItemMenu {...add} onClick={() => handleShowAdd()} />

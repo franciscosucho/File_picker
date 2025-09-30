@@ -9,7 +9,7 @@
 </script>
 
 <div class="contain_filters">
-    <InputBuscar {height} {width} {placeholder}/>
+    <InputBuscar {height} {width} {placeholder} on:input/>
     <FiltList />
 </div> 
 

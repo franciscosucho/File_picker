@@ -1,69 +1,12 @@
 <script>
+    
+    export let items=[];
     import FIleItem from "./FIleItem.svelte";
     import FileitemAgregar from "./FileitemAgregar.svelte";
 
-    let search = "";
     //  variable para cambiar la vista de lista a grid o a lista.
     import { changueList } from "../../store/store.js";
 
-    let items = [
-        {
-            id: 1,
-            name: "Recientes",
-            url: "https://picsum.photos/200",
-            active: true,
-            last: false,
-        },
-        {
-            id: 2,
-            name: "ssasdasd",
-            url: "https://picsum.photos/200",
-            active: true,
-            last: false,
-        },
-        {
-            id: 2,
-            name: "ssasdasd",
-            url: "https://picsum.photos/200",
-            active: true,
-            last: false,
-        },
-        {
-            id: 2,
-            name: "ssasdasd",
-            url: "https://picsum.photos/200",
-            active: true,
-            last: false,
-        },
-        {
-            id: 2,
-            name: "ssasdasd",
-            url: "https://picsum.photos/200",
-            active: true,
-            last: false,
-        },
-        {
-            id: 2,
-            name: "ssasdasd",
-            url: "https://picsum.photos/200",
-            active: true,
-            last: false,
-        },
-        {
-            id: 2,
-            name: "ssasdasd",
-            url: "https://picsum.photos/200",
-            active: true,
-            last: false,
-        },
-        {
-            id: 2,
-            name: "ssasdasd",
-            url: "https://picsum.photos/200",
-            active: true,
-            last: false,
-        },
-    ];
 
     for (let index = 0; index < items.length; index++) {
         if (index == items.length) {

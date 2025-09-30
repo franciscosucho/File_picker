@@ -4,11 +4,20 @@
     export let label_content = "";
     export let maxLeng = 0;
     export let name_inp = "";
+    export let value = "";
 </script>
 
 <div class="cont_input">
     <label for="large-input" class="label">{label_content}</label>
-    <input id="large-input" class="input" type="{type}" placeholder="{placeholder}" maxlength={maxLeng} name={name_inp}/>
+    <input
+        id="large-input"
+        class="input"
+        {type}
+        {placeholder}
+        maxlength={maxLeng}
+        name={name_inp}
+        bind:value={value}
+    />
 </div>
 
 <style>
@@ -19,11 +28,10 @@
         justify-content: center;
         align-items: flex-start;
         width: 80%;
-       
     }
     .cont_input .input {
         width: 90%;
-        padding: 10px;  
+        padding: 10px;
         border-radius: 12px;
         color: black;
         box-shadow: 0 3px 10px rgba(44, 44, 44, 0.116);

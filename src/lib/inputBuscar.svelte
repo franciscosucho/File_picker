@@ -20,7 +20,7 @@
     {placeholder}
     aria-label="Recipient's username"
     aria-describedby="basic-addon2"
-  />
+    on:input/>
 
 </div>
 

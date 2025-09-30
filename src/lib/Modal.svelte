@@ -23,23 +23,136 @@
         handFunction: handleShowAdd,
     };
 
-    let foldername;
+    let foldername = "";
     async function post_form() {
-        let dataArray = new FormData();
-        dataArray.append("foldername", foldername);
-        fetch("/post", {
-            method: "POST",
-            headers: {
-                "Content-Type": "multipart/form-data",
+        const data = { name: foldername };
+        const response = await fetch(
+            "http://localhost:8000/filepicker/folders/",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
             },
-            body: dataArray,
-        })
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        );
+        console.log(await response.json());
+    }
+
+    let categories = [
+        {
+            name: "Recientes",
+
+            count: 12,
+            active: false,
+        },
+        {
+            name: "Documentos",
+
+            count: 24,
+            active: false,
+        },
+        {
+            name: "Imágenes",
+
+            count: 156,
+            active: false,
+        },
+        { name: "Videos", count: 8, active: false },
+        {
+            name: "Carpetas",
+
+            count: 6,
+            active: false,
+        },
+    ];
+    let copyCategories = [...categories];
+
+    let items = [
+        {
+            id: 1,
+            name: "Recientes",
+            url: "https://picsum.photos/200",
+            active: true,
+            last: false,
+        },
+        {
+            id: 2,
+            name: "ssasdasd",
+            url: "https://picsum.photos/200",
+            active: true,
+            last: false,
+        },
+        {
+            id: 2,
+            name: "ssasdasd",
+            url: "https://picsum.photos/200",
+            active: true,
+            last: false,
+        },
+        {
+            id: 2,
+            name: "ssasdasd",
+            url: "https://picsum.photos/200",
+            active: true,
+            last: false,
+        },
+        {
+            id: 2,
+            name: "ssasdasd",
+            url: "https://picsum.photos/200",
+            active: true,
+            last: false,
+        },
+        {
+            id: 2,
+            name: "ssasdasd",
+            url: "https://picsum.photos/200",
+            active: true,
+            last: false,
+        },
+        {
+            id: 2,
+            name: "ssasdasd",
+            url: "https://picsum.photos/200",
+            active: true,
+            last: false,
+        },
+        {
+            id: 2,
+            name: "ssasdasd",
+            url: "https://picsum.photos/200",
+            active: true,
+            last: false,
+        },
+    ];
+    let copyitems = [...items];
+
+    function handleSearchCat(e) {
+        const q = e.target.value;
+        if (q === "") {
+            copyCategories = [...categories];
+            return false;
+        }
+        const results = categories.filter((cat) => {
+            const name = cat.name.toLowerCase();
+
+            return name.indexOf(q) > -1;
+        });
+        copyCategories = [...results];
+    }
+    function handleSearchFile(e) {
+        const q = e.target.value;
+        if (q === "") {
+            copyitems = [...items];
+            return false;
+        }
+        const results = items.filter((item) => {
+            const name = item.name.toLowerCase();
+
+            return name.indexOf(q) > -1;
+        });
+        copyitems = [...results];
     }
 </script>
 
@@ -53,20 +166,25 @@
         <!-- <FormComp {...formProps}></FormComp>-->
         <form method="post" class="form" on:submit|preventDefault={post_form}>
             <h3 class="tit_form">Crear Carpeta</h3>
+
             <InputForm
                 type={"text"}
                 label_content={"Nombre de la carpeta"}
                 placeholder={"Escriba el nombre de la carpeta"}
                 name_inp={"namefolder"}
                 maxLeng={50}
+                bind:value={foldername}
             />
             <Contbtns {...cont_btnProps}></Contbtns>
         </form>
     </div>
     <div class="modal" on:click|stopPropagation>
-        <MenuLateral />
+        <MenuLateral
+            bind:categories={copyCategories}
+            on:input={handleSearchCat}
+        />
 
-        <MainFiles />
+        <MainFiles bind:items={copyitems} on:input={handleSearchFile} />
         <!--  <button on:click={onClose}>Cerrar</button>-->
     </div>
 </div>

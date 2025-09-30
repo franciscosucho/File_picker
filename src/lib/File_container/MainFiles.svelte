@@ -2,11 +2,12 @@
     import ContArchivos from "./ContArchivos.svelte";
     import Filters from "../Filters_files/Filters.svelte";
     let search = "";
+    export let items = [];
 </script>
 
 <div class="main_files">
-    <Filters />
-    <ContArchivos />
+    <Filters on:input/>
+    <ContArchivos bind:items/>
 </div>
 
 <style>
